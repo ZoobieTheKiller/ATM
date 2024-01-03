@@ -8,7 +8,7 @@ def get_pakistan_time():
 
 if __name__ == "__main__":
     get_pakistan_time()
-file = open("pinfile.txt", "r+")
+file = open("pinfile.txt", "r")
 pint = str(file.read())
 file.close()
 def main():
@@ -21,14 +21,14 @@ def main():
                               "(1) Deposit\n(2) Withdraw\n(3) Check Balance\n(4) Change Pin\n\n Enter Option : ")
             if mmenu == '1':
 
-                    file = open("readfile.txt", "r+")
+                    file = open("readfile.txt", "r")
                     balance = int(file.read())
                     deposit = int(input("Type Amount To Deposit : "))
                     balance = deposit + balance
-                    file = open("readfile.txt", "w+")
+                    file = open("readfile.txt", "w")
                     file.write(str(balance))
 
-                    file = open("readfile.txt", "r+")
+                    file = open("readfile.txt", "r")
                     content = file.read()
                     print(f'{content}$ Is Your Balance!')
                     file.close()
@@ -39,16 +39,16 @@ def main():
                         main()
 
             if mmenu == '2':
-                    file = open("readfile.txt", "r+")
+                    file = open("readfile.txt", "r")
                     balance = int(file.read())
                     withdraw = int(input("Type Amount To Withdraw : "))
                     if withdraw < balance or withdraw == balance:
 
                         balance = withdraw - balance
-                        file = open("readfile.txt", "w+")
+                        file = open("readfile.txt", "w")
                         file.write(str(balance))
 
-                        file = open("readfile.txt", "r+")
+                        file = open("readfile.txt", "r")
                         content = file.read()
                         print(f'{content}$ Is Your Balance After Withdrawal!')
                         file.close()
@@ -66,7 +66,7 @@ def main():
                           main()
 
             if mmenu == '3':
-                    file = open("readfile.txt", "r+")
+                    file = open("readfile.txt", "r")
                     content = file.read()
                     print(f'{content}$ Is Your Balance!\n')
                     file.close()
@@ -76,10 +76,10 @@ def main():
                          main()
             if mmenu == '4':
                     newpin = input("Enter Your Desired Pin : ")
-                    file = open("pinfile.txt", "w+")
+                    file = open("pinfile.txt", "w")
                     content = file.write(str(newpin))
                     print("\n**Operation Successful**")
-                    file = open("pinfile.txt", "r+")
+                    file = open("pinfile.txt", "r")
                     contenttwo = file.read()
                     file.close()
                     print(f"\nYour New Pin Is {contenttwo} !")
